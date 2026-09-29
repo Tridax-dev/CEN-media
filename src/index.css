@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --color-brand: #c50000;
+  --color-brand-dark: #990000;
+  --color-ink: #0a0a0a;
+  --color-muted: #666666;
+  --color-soft: #f5f5f5;
+  --color-line: #e5e5e5;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); color: var(--color-ink); background: #fff; font-size: 17px; line-height: 1.7; }
+
+.display-hero { font-size: clamp(56px, 12vw, 180px); line-height: 0.85; letter-spacing: -0.06em; font-weight: 900; }
+.display-section { font-size: clamp(38px, 6vw, 90px); line-height: 0.95; letter-spacing: -0.04em; font-weight: 800; }
+.label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+
+:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 3px; }
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 28s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
